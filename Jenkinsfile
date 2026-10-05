@@ -75,7 +75,7 @@ pipeline {
                         kubectl apply -f entrega.yaml
 
                         kubectl rollout status \
-                          deployment/deployment-pablo-anavalon \
+                          deployment/app-pablo-anavalon \
                           -n ${K8S_NAMESPACE} \
                           --timeout=120s
                     '''

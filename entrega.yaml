@@ -23,7 +23,7 @@ stringData:
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: deployment-pablo-anavalon
+  name: app-pablo-anavalon
   namespace: ns-pablo-anavalon
 spec:
   replicas: 2

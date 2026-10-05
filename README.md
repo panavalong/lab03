@@ -84,7 +84,7 @@ panavalong/lab3:pablo-anavalon
 
 ```text
 Namespace:   ns-pablo-anavalon
-Deployment:  deployment-pablo-anavalon
+Deployment:  app-pablo-anavalon
 Service:     svc-pablo-anavalon
 ConfigMap:   config-pablo-anavalon
 Secret:      secret-pablo-anavalon
@@ -172,7 +172,7 @@ kubectl get svc -n ns-pablo-anavalon
 ## 9. Verificar las variables de entorno
 
 ```bash
-kubectl exec deployment/deployment-pablo-anavalon \
+kubectl exec deployment/app-pablo-anavalon \
   -n ns-pablo-anavalon -- \
   printenv | grep -E 'AMBIENTE|API_KEY'
 ```
@@ -187,7 +187,7 @@ API_KEY=api-key-pablo-anavalon
 ## 10. Verificar logs
 
 ```bash
-kubectl logs deployment/deployment-pablo-anavalon \
+kubectl logs deployment/app-pablo-anavalon \
   -n ns-pablo-anavalon
 ```
 
@@ -271,7 +271,7 @@ Luego:
 
 ```bash
 kubectl rollout status \
-  deployment/deployment-pablo-anavalon \
+  deployment/app-pablo-anavalon \
   -n ns-pablo-anavalon \
   --timeout=120s
 ```
