@@ -1,0 +1,3 @@
+NAME                                        READY   STATUS    RESTARTS   AGE
+deployment-pablo-anavalon-99c9b65bd-p4gpk   1/1     Running   0          140m
+deployment-pablo-anavalon-99c9b65bd-s22xm   1/1     Running   0          140m

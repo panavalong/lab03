@@ -1,0 +1,2 @@
+Comando: curl http://localhost:8080/lab
+{"AMBIENTE":"produccion","API_KEY":"api-key-pablo-anavalon"}

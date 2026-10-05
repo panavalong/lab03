@@ -1,0 +1,2 @@
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+svc-pablo-anavalon   ClusterIP   10.99.41.110   <none>        80/TCP    140m
