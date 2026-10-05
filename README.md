@@ -1,98 +1,351 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Laboratorio 3 - Despliegue CI/CD en Kubernetes
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Alumno
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Pablo Anavalon
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este laboratorio implementa un flujo CI/CD completo para una aplicación desarrollada con NestJS.
 
-## Project setup
+El flujo permite:
 
-```bash
-$ pnpm install
+- Instalar dependencias.
+- Ejecutar pruebas automáticas.
+- Construir una imagen Docker.
+- Publicar la imagen en Docker Hub.
+- Desplegar la aplicación en Kubernetes.
+- Automatizar todo el proceso mediante Jenkins.
+
+## Tecnologías utilizadas
+
+- Node.js
+- NestJS
+- pnpm
+- Docker
+- Docker Hub
+- Kubernetes
+- Jenkins
+- Jenkins Kubernetes Plugin
+
+## Arquitectura general
+
+```text
+Código fuente
+   ↓
+GitHub
+   ↓
+Jenkins
+   ↓
+Agente Kubernetes
+   ↓
+install
+   ↓
+test
+   ↓
+build
+   ↓
+push
+   ↓
+deploy
+   ↓
+Kubernetes
 ```
 
-## Compile and run the project
+Jenkins utiliza un agente Kubernetes definido en `agent.yaml`.
 
-```bash
-# development
-$ pnpm run start
+El agente contiene contenedores para:
 
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+```text
+node
+docker
+kubectl
 ```
 
-## Run tests
+## Repositorio Git
 
-```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+```text
+https://github.com/panavalong/lab03.git
 ```
 
-## Deployment
+Rama principal:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+```text
+main
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## Imagen Docker
 
-## Resources
+```text
+panavalong/lab3:pablo-anavalon
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+## Recursos Kubernetes
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```text
+Namespace:   ns-pablo-anavalon
+Deployment:  deployment-pablo-anavalon
+Service:     svc-pablo-anavalon
+ConfigMap:   config-pablo-anavalon
+Secret:      secret-pablo-anavalon
+```
 
-## Support
+El Deployment utiliza 2 réplicas.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Configuración de la aplicación
 
-## Stay in touch
+La aplicación utiliza:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```text
+AMBIENTE
+API_KEY
+```
 
-## License
+`AMBIENTE` se obtiene desde un ConfigMap.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+`API_KEY` se obtiene desde un Secret de Kubernetes.
+
+# Ejecución manual
+
+## 1. Instalar dependencias
+
+```bash
+pnpm install
+```
+
+## 2. Ejecutar pruebas
+
+```bash
+pnpm test
+```
+
+Resultado esperado:
+
+```text
+Test Suites: 2 passed
+Tests: 5 passed
+```
+
+## 3. Construir la imagen Docker
+
+```bash
+docker build -t panavalong/lab3:pablo-anavalon .
+```
+
+## 4. Publicar la imagen en Docker Hub
+
+```bash
+docker login
+docker push panavalong/lab3:pablo-anavalon
+```
+
+## 5. Desplegar en Kubernetes
+
+```bash
+kubectl apply -f entrega.yaml
+```
+
+## 6. Verificar el Deployment
+
+```bash
+kubectl get deployment -n ns-pablo-anavalon
+```
+
+## 7. Verificar los Pods
+
+```bash
+kubectl get pods -n ns-pablo-anavalon
+```
+
+Resultado esperado:
+
+```text
+2 Pods en estado Running
+```
+
+## 8. Verificar el Service
+
+```bash
+kubectl get svc -n ns-pablo-anavalon
+```
+
+## 9. Verificar las variables de entorno
+
+```bash
+kubectl exec deployment/deployment-pablo-anavalon \
+  -n ns-pablo-anavalon -- \
+  printenv | grep -E 'AMBIENTE|API_KEY'
+```
+
+Resultado esperado:
+
+```text
+AMBIENTE=produccion
+API_KEY=api-key-pablo-anavalon
+```
+
+## 10. Verificar logs
+
+```bash
+kubectl logs deployment/deployment-pablo-anavalon \
+  -n ns-pablo-anavalon
+```
+
+# Prueba de la aplicación
+
+En una terminal:
+
+```bash
+kubectl port-forward \
+  svc/svc-pablo-anavalon \
+  8080:80 \
+  -n ns-pablo-anavalon
+```
+
+En otra:
+
+```bash
+curl http://localhost:8080/lab
+```
+
+Resultado esperado:
+
+```json
+{
+  "AMBIENTE": "produccion",
+  "API_KEY": "api-key-pablo-anavalon"
+}
+```
+
+# Pipeline Jenkins
+
+El pipeline está definido en `Jenkinsfile` y utiliza un agente Kubernetes definido en `agent.yaml`.
+
+Stages implementados:
+
+```text
+install
+test
+build
+push
+deploy
+```
+
+## Stage install
+
+```bash
+pnpm install --frozen-lockfile
+```
+
+## Stage test
+
+```bash
+pnpm test
+```
+
+## Stage build
+
+```bash
+docker build -t panavalong/lab3:pablo-anavalon .
+```
+
+## Stage push
+
+Publica la imagen en Docker Hub.
+
+Las credenciales no están escritas directamente en el Jenkinsfile.
+
+Se utiliza la credencial Jenkins:
+
+```text
+dockerhub-credentials
+```
+
+## Stage deploy
+
+```bash
+kubectl apply -f entrega.yaml
+```
+
+Luego:
+
+```bash
+kubectl rollout status \
+  deployment/deployment-pablo-anavalon \
+  -n ns-pablo-anavalon \
+  --timeout=120s
+```
+
+# Permisos de Jenkins
+
+Jenkins utiliza el ServiceAccount:
+
+```text
+jenkins
+```
+
+Los permisos RBAC para desplegar en `ns-pablo-anavalon` se configuran mediante:
+
+```text
+jenkins-rbac.yaml
+```
+
+# Resultado final
+
+```text
+Pipeline ejecutado correctamente
+Finished: SUCCESS
+```
+
+Flujo final:
+
+```text
+Código
+  ↓
+GitHub
+  ↓
+Jenkins
+  ↓
+Docker
+  ↓
+Docker Hub
+  ↓
+Kubernetes
+```
+
+# Evidencias
+
+La carpeta `evidencias/` contiene las salidas y capturas del laboratorio, incluyendo:
+
+```text
+kubectl cluster-info
+kubectl get nodes
+kubectl get pods
+kubectl get deployment
+kubectl get svc
+kubectl logs
+kubectl exec
+kubectl get configmap
+kubectl get secret
+curl http://localhost:8080/lab
+Pipeline Jenkins exitoso
+```
+
+# Estructura principal del proyecto
+
+```text
+lab03/
+├── .dockerignore
+├── Dockerfile
+├── Jenkinsfile
+├── README.md
+├── agent.yaml
+├── entrega.yaml
+├── jenkins-rbac.yaml
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── src/
+├── test/
+└── evidencias/
+```
