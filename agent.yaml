@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+spec:
+  serviceAccountName: jenkins
+  containers:
+    - name: node
+      image: node:24-alpine
+      command:
+        - cat
+      tty: true
+      workingDir: /home/jenkins/agent
+
+    - name: docker
+      image: docker:29-cli
+      command:
+        - cat
+      tty: true
+      workingDir: /home/jenkins/agent
+      volumeMounts:
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+
+    - name: kubectl
+      image: bitnami/kubectl:1.36
+      command:
+        - cat
+      tty: true
+      workingDir: /home/jenkins/agent
+
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock

@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-pablo-anavalon
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-pablo-anavalon
+  namespace: ns-pablo-anavalon
+data:
+  AMBIENTE: "produccion"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-pablo-anavalon
+  namespace: ns-pablo-anavalon
+type: Opaque
+stringData:
+  API_KEY: "api-key-pablo-anavalon"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-pablo-anavalon
+  namespace: ns-pablo-anavalon
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-pablo-anavalon
+  template:
+    metadata:
+      labels:
+        app: app-pablo-anavalon
+    spec:
+      containers:
+        - name: app-pablo-anavalon
+          image: panavalong/lab3:pablo-anavalon
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: AMBIENTE
+              valueFrom:
+                configMapKeyRef:
+                  name: config-pablo-anavalon
+                  key: AMBIENTE
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-pablo-anavalon
+                  key: API_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-pablo-anavalon
+  namespace: ns-pablo-anavalon
+spec:
+  selector:
+    app: app-pablo-anavalon
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP
