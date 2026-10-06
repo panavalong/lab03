@@ -6,36 +6,42 @@ Obtained agent.yaml from git https://github.com/panavalong/lab03.git
 [Pipeline] podTemplate
 [Pipeline] {
 [Pipeline] node
-Created Pod: kubernetes jenkins/lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9
-[PodInfo] jenkins/lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9
+Created Pod: kubernetes jenkins/lab3-pablo-anavalon-6-rbkls-69sd9-d13pq
+[PodInfo] jenkins/lab3-pablo-anavalon-6-rbkls-69sd9-d13pq
 	Container [docker] waiting [ContainerCreating] No message
 	Container [jnlp] waiting [ContainerCreating] No message
 	Container [kubectl] waiting [ContainerCreating] No message
 	Container [node] waiting [ContainerCreating] No message
 	Pod [Pending][ContainersNotReady] containers with unready status: [node docker kubectl jnlp]
-[PodInfo] jenkins/lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9
+[PodInfo] jenkins/lab3-pablo-anavalon-6-rbkls-69sd9-d13pq
+	Container [docker] waiting [ContainerCreating] No message
+	Container [jnlp] waiting [ContainerCreating] No message
+	Container [kubectl] waiting [ContainerCreating] No message
+	Container [node] waiting [ContainerCreating] No message
+	Pod [Pending][ContainersNotReady] containers with unready status: [node docker kubectl jnlp]
+[PodInfo] jenkins/lab3-pablo-anavalon-6-rbkls-69sd9-d13pq
 	Container [docker] waiting [ContainerCreating] No message
 	Container [jnlp] waiting [ContainerCreating] No message
 	Container [kubectl] waiting [ContainerCreating] No message
 	Container [node] waiting [ContainerCreating] No message
 	Pod [Pending][ContainersNotReady] containers with unready status: [node docker kubectl jnlp]
 Still waiting to schedule task
-‘lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9’ is offline
-Agent lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9 is provisioned from template lab3-pablo-anavalon_5-xkh9l-n1zvq
+‘lab3-pablo-anavalon-6-rbkls-69sd9-d13pq’ is offline
+Agent lab3-pablo-anavalon-6-rbkls-69sd9-d13pq is provisioned from template lab3-pablo-anavalon_6-rbkls-69sd9
 ---
 apiVersion: "v1"
 kind: "Pod"
 metadata:
   annotations:
-    kubernetes.jenkins.io/last-refresh: "1791241794999"
-    buildUrl: "http://jenkins.jenkins.svc.cluster.local:8080/job/lab3-pablo-anavalon/5/"
-    runUrl: "job/lab3-pablo-anavalon/5/"
+    kubernetes.jenkins.io/last-refresh: "1791244274649"
+    buildUrl: "http://jenkins.jenkins.svc.cluster.local:8080/job/lab3-pablo-anavalon/6/"
+    runUrl: "job/lab3-pablo-anavalon/6/"
   labels:
     jenkins/jenkins-jenkins-agent: "true"
-    jenkins/label-digest: "4d2e66f55918fe145d8b742308e200045506e65f"
-    jenkins/label: "lab3-pablo-anavalon_5-xkh9l"
+    jenkins/label-digest: "57d44ede38d4908d7e3ba3b91144f5de30b571f4"
+    jenkins/label: "lab3-pablo-anavalon_6-rbkls"
     kubernetes.jenkins.io/controller: "http___jenkins_jenkins_svc_cluster_local_8080x"
-  name: "lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9"
+  name: "lab3-pablo-anavalon-6-rbkls-69sd9-d13pq"
   namespace: "jenkins"
 spec:
   containers:
@@ -80,11 +86,11 @@ spec:
     - name: "JENKINS_TUNNEL"
       value: "jenkins-agent.jenkins.svc.cluster.local:50000"
     - name: "JENKINS_AGENT_NAME"
-      value: "lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9"
+      value: "lab3-pablo-anavalon-6-rbkls-69sd9-d13pq"
     - name: "REMOTING_OPTS"
       value: "-noReconnectAfter 1d"
     - name: "JENKINS_NAME"
-      value: "lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9"
+      value: "lab3-pablo-anavalon-6-rbkls-69sd9-d13pq"
     - name: "JENKINS_AGENT_WORKDIR"
       value: "/home/jenkins/agent"
     - name: "JENKINS_URL"
@@ -111,7 +117,7 @@ spec:
       medium: ""
     name: "workspace-volume"
 
-Running on lab3-pablo-anavalon-5-xkh9l-n1zvq-tj1t9 in /home/jenkins/agent/workspace/lab3-pablo-anavalon
+Running on lab3-pablo-anavalon-6-rbkls-69sd9-d13pq in /home/jenkins/agent/workspace/lab3-pablo-anavalon
 [Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Declarative: Checkout SCM)
@@ -129,12 +135,12 @@ Fetching upstream changes from https://github.com/panavalong/lab03.git
  > git config remote.origin.url https://github.com/panavalong/lab03.git # timeout=10
  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
 Avoid second fetch
-Checking out Revision c6c13cf3d8890fb245b66e5ed2e2f5dfcfa932a4 (refs/remotes/origin/main)
+Checking out Revision 477e673e010585792c56f6a07e70d8826e076bd9 (refs/remotes/origin/main)
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
  > git config core.sparsecheckout # timeout=10
- > git checkout -f c6c13cf3d8890fb245b66e5ed2e2f5dfcfa932a4 # timeout=10
-Commit message: "Separa namespace del despliegue Jenkins"
- > git rev-list --no-walk 15eabef22bfd9a0ec410257954e76aba9fa241ca # timeout=10
+ > git checkout -f 477e673e010585792c56f6a07e70d8826e076bd9 # timeout=10
+Commit message: "Corrige nombre del Deployment"
+ > git rev-list --no-walk c6c13cf3d8890fb245b66e5ed2e2f5dfcfa932a4 # timeout=10
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -155,81 +161,51 @@ Progress: resolved 643, reused 0, downloaded 1, added 0
 Packages are hard linked from the content-addressable store to the virtual store.
   Content-addressable store is at: /home/jenkins/agent/.pnpm-store/v11
   Virtual store is at:             node_modules/.pnpm
-Progress: resolved 643, reused 0, downloaded 64, added 62
-[WARN] Tarball download average speed 7 KiB/s (size 8 KiB) is below 50 KiB/s: https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz (GET)
-[WARN] Tarball download average speed 9 KiB/s (size 13 KiB) is below 50 KiB/s: https://registry.npmjs.org/iterare/-/iterare-1.2.1.tgz (GET)
-[WARN] Tarball download average speed 9 KiB/s (size 26 KiB) is below 50 KiB/s: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz (GET)
-[WARN] Tarball download average speed 15 KiB/s (size 27 KiB) is below 50 KiB/s: https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz (GET)
-[WARN] Tarball download average speed 5 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/@inquirer/select/-/select-4.4.2.tgz (GET)
-[WARN] Tarball download average speed 5 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz (GET)
-[WARN] Tarball download average speed 7 KiB/s (size 14 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.29.7.tgz (GET)
-[WARN] Tarball download average speed 7 KiB/s (size 8 KiB) is below 50 KiB/s: https://registry.npmjs.org/array-timsort/-/array-timsort-1.0.3.tgz (GET)
-[WARN] Tarball download average speed 10 KiB/s (size 15 KiB) is below 50 KiB/s: https://registry.npmjs.org/exit-x/-/exit-x-0.2.2.tgz (GET)
-[WARN] Tarball download average speed 8 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/@sinonjs/commons/-/commons-3.0.1.tgz (GET)
-[WARN] Tarball download average speed 27 KiB/s (size 72 KiB) is below 50 KiB/s: https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.60.0.tgz (GET)
-[WARN] Tarball download average speed 7 KiB/s (size 17 KiB) is below 50 KiB/s: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz (GET)
-[WARN] Tarball download average speed 9 KiB/s (size 14 KiB) is below 50 KiB/s: https://registry.npmjs.org/ignore/-/ignore-5.3.2.tgz (GET)
-[WARN] Tarball download average speed 14 KiB/s (size 55 KiB) is below 50 KiB/s: https://registry.npmjs.org/node-emoji/-/node-emoji-1.11.0.tgz (GET)
-[WARN] Tarball download average speed 18 KiB/s (size 72 KiB) is below 50 KiB/s: https://registry.npmjs.org/glob/-/glob-10.5.0.tgz (GET)
-[WARN] Tarball download average speed 12 KiB/s (size 41 KiB) is below 50 KiB/s: https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-4.2.0.tgz (GET)
-[WARN] Tarball download average speed 22 KiB/s (size 59 KiB) is below 50 KiB/s: https://registry.npmjs.org/jackspeak/-/jackspeak-3.4.3.tgz (GET)
-[WARN] Tarball download average speed 23 KiB/s (size 28 KiB) is below 50 KiB/s: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.2.tgz (GET)
-[WARN] Tarball download average speed 27 KiB/s (size 73 KiB) is below 50 KiB/s: https://registry.npmjs.org/@eslint/config-array/-/config-array-0.21.2.tgz (GET)
-[WARN] Tarball download average speed 9 KiB/s (size 24 KiB) is below 50 KiB/s: https://registry.npmjs.org/synckit/-/synckit-0.11.13.tgz (GET)
-[WARN] Tarball download average speed 19 KiB/s (size 66 KiB) is below 50 KiB/s: https://registry.npmjs.org/ts-loader/-/ts-loader-9.6.0.tgz (GET)
-[WARN] Tarball download average speed 15 KiB/s (size 71 KiB) is below 50 KiB/s: https://registry.npmjs.org/js-yaml/-/js-yaml-3.14.2.tgz (GET)
-[WARN] Tarball download average speed 20 KiB/s (size 39 KiB) is below 50 KiB/s: https://registry.npmjs.org/type-fest/-/type-fest-0.21.3.tgz (GET)
-[WARN] Tarball download average speed 45 KiB/s (size 64 KiB) is below 50 KiB/s: https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz (GET)
-[WARN] Tarball download average speed 12 KiB/s (size 51 KiB) is below 50 KiB/s: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.33.tgz (GET)
-Progress: resolved 643, reused 0, downloaded 195, added 192
-[WARN] Tarball download average speed 7 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz (GET)
-[WARN] Tarball download average speed 28 KiB/s (size 92 KiB) is below 50 KiB/s: https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz (GET)
-[WARN] Tarball download average speed 22 KiB/s (size 99 KiB) is below 50 KiB/s: https://registry.npmjs.org/path-scurry/-/path-scurry-1.11.1.tgz (GET)
-[WARN] Tarball download average speed 30 KiB/s (size 162 KiB) is below 50 KiB/s: https://registry.npmjs.org/esquery/-/esquery-1.7.0.tgz (GET)
-[WARN] Tarball download average speed 22 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz (GET)
-[WARN] Tarball download average speed 19 KiB/s (size 33 KiB) is below 50 KiB/s: https://registry.npmjs.org/file-type/-/file-type-21.3.4.tgz (GET)
-[WARN] Tarball download average speed 26 KiB/s (size 26 KiB) is below 50 KiB/s: https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.3.1.tgz (GET)
-[WARN] Tarball download average speed 9 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/form-data/-/form-data-4.0.5.tgz (GET)
-[WARN] Tarball download average speed 19 KiB/s (size 23 KiB) is below 50 KiB/s: https://registry.npmjs.org/jest-worker/-/jest-worker-30.4.1.tgz (GET)
-[WARN] Tarball download average speed 23 KiB/s (size 32 KiB) is below 50 KiB/s: https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz (GET)
-[WARN] Request took 11252ms: https://registry.npmjs.org/@angular-devkit%2Fschematics
-[WARN] Request took 11346ms: https://registry.npmjs.org/@angular-devkit%2Fcore
-[WARN] Tarball download average speed 47 KiB/s (size 212 KiB) is below 50 KiB/s: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz (GET)
-[WARN] Tarball download average speed 24 KiB/s (size 212 KiB) is below 50 KiB/s: https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz (GET)
-[WARN] Tarball download average speed 47 KiB/s (size 184 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/helpers/-/helpers-7.29.7.tgz (GET)
-[WARN] Tarball download average speed 20 KiB/s (size 35 KiB) is below 50 KiB/s: https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plugin-5.6.1.tgz (GET)
-[WARN] Tarball download average speed 15 KiB/s (size 50 KiB) is below 50 KiB/s: https://registry.npmjs.org/source-map/-/source-map-0.7.6.tgz (GET)
-[WARN] Tarball download average speed 17 KiB/s (size 49 KiB) is below 50 KiB/s: https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-2.5.0.tgz (GET)
-[WARN] Tarball download average speed 45 KiB/s (size 188 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/core/-/core-7.29.7.tgz (GET)
-[WARN] Tarball download average speed 27 KiB/s (size 43 KiB) is below 50 KiB/s: https://registry.npmjs.org/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-9.1.0.tgz (GET)
-[WARN] Tarball download average speed 30 KiB/s (size 185 KiB) is below 50 KiB/s: https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.2.tgz (GET)
-Progress: resolved 643, reused 0, downloaded 332, added 320
-Progress: resolved 643, reused 0, downloaded 381, added 352
-Progress: resolved 643, reused 0, downloaded 416, added 386
-[WARN] Request took 14153ms: https://registry.npmjs.org/@angular-devkit%2Fschematics-cli
-[WARN] Tarball download average speed 10 KiB/s (size 26 KiB) is below 50 KiB/s: https://registry.npmjs.org/commander/-/commander-4.1.1.tgz (GET)
-[WARN] Tarball download average speed 14 KiB/s (size 21 KiB) is below 50 KiB/s: https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz (GET)
-Progress: resolved 643, reused 0, downloaded 484, added 480
-Progress: resolved 643, reused 0, downloaded 512, added 511
-Progress: resolved 643, reused 0, downloaded 545, added 544
-Progress: resolved 643, reused 0, downloaded 562, added 544
-[WARN] Tarball download average speed 38 KiB/s (size 356 KiB) is below 50 KiB/s: https://registry.npmjs.org/glob/-/glob-13.0.6.tgz (GET)
-[WARN] Tarball download average speed 11 KiB/s (size 53 KiB) is below 50 KiB/s: https://registry.npmjs.org/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-4.2.0.tgz (GET)
-[WARN] Request took 15344ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
-[WARN] Tarball download average speed 25 KiB/s (size 63 KiB) is below 50 KiB/s: https://registry.npmjs.org/source-map/-/source-map-0.7.4.tgz (GET)
-[WARN] Tarball download average speed 35 KiB/s (size 114 KiB) is below 50 KiB/s: https://registry.npmjs.org/minimatch/-/minimatch-10.2.5.tgz (GET)
-[WARN] Request took 18042ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
-[WARN] Request took 18282ms: https://registry.npmjs.org/@typescript-eslint%2Futils
-[WARN] Request took 10879ms: https://registry.npmjs.org/@angular-devkit%2Fcore
-[WARN] Request took 11113ms: https://registry.npmjs.org/@angular-devkit%2Fschematics
-[WARN] Tarball download average speed 35 KiB/s (size 232 KiB) is below 50 KiB/s: https://registry.npmjs.org/uglify-js/-/uglify-js-3.19.3.tgz (GET)
-[WARN] Request took 19283ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
-[WARN] Request took 20490ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
-[WARN] Request took 20514ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
-[WARN] Request took 21434ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
-[WARN] Request took 23334ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
-Progress: resolved 643, reused 0, downloaded 643, added 640
-✓ Lockfile passes supply-chain policies (670 entries in 31.5s)
+Progress: resolved 643, reused 0, downloaded 96, added 67
+[WARN] Tarball download average speed 45 KiB/s (size 50 KiB) is below 50 KiB/s: https://registry.npmjs.org/esprima/-/esprima-4.0.1.tgz (GET)
+[WARN] Tarball download average speed 28 KiB/s (size 32 KiB) is below 50 KiB/s: https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz (GET)
+Progress: resolved 643, reused 0, downloaded 182, added 160
+[WARN] Tarball download average speed 29 KiB/s (size 48 KiB) is below 50 KiB/s: https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-19.2.24.tgz (GET)
+Progress: resolved 643, reused 0, downloaded 222, added 192
+Progress: resolved 643, reused 0, downloaded 256, added 224
+[WARN] Tarball download average speed 42 KiB/s (size 99 KiB) is below 50 KiB/s: https://registry.npmjs.org/path-scurry/-/path-scurry-1.11.1.tgz (GET)
+[WARN] Tarball download average speed 6 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz (GET)
+[WARN] Tarball download average speed 34 KiB/s (size 73 KiB) is below 50 KiB/s: https://registry.npmjs.org/@eslint/config-array/-/config-array-0.21.2.tgz (GET)
+[WARN] Tarball download average speed 34 KiB/s (size 63 KiB) is below 50 KiB/s: https://registry.npmjs.org/source-map/-/source-map-0.7.4.tgz (GET)
+[WARN] Tarball download average speed 45 KiB/s (size 185 KiB) is below 50 KiB/s: https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.2.tgz (GET)
+[WARN] Tarball download average speed 11 KiB/s (size 17 KiB) is below 50 KiB/s: https://registry.npmjs.org/schema-utils/-/schema-utils-3.3.0.tgz (GET)
+Progress: resolved 643, reused 0, downloaded 352, added 352
+Progress: resolved 643, reused 0, downloaded 388, added 384
+[WARN] Tarball download average speed 32 KiB/s (size 64 KiB) is below 50 KiB/s: https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-8.60.0.tgz (GET)
+Progress: resolved 643, reused 0, downloaded 433, added 416
+Progress: resolved 643, reused 0, downloaded 436, added 416
+Progress: resolved 643, reused 0, downloaded 448, added 444
+[WARN] Tarball download average speed 24 KiB/s (size 38 KiB) is below 50 KiB/s: https://registry.npmjs.org/memfs/-/memfs-3.5.3.tgz (GET)
+[WARN] Tarball download average speed 7 KiB/s (size 11 KiB) is below 50 KiB/s: https://registry.npmjs.org/@jest/diff-sequences/-/diff-sequences-30.4.0.tgz (GET)
+[WARN] Tarball download average speed 30 KiB/s (size 50 KiB) is below 50 KiB/s: https://registry.npmjs.org/source-map/-/source-map-0.7.6.tgz (GET)
+[WARN] Tarball download average speed 40 KiB/s (size 66 KiB) is below 50 KiB/s: https://registry.npmjs.org/ts-loader/-/ts-loader-9.6.0.tgz (GET)
+[WARN] Tarball download average speed 12 KiB/s (size 20 KiB) is below 50 KiB/s: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.9.tgz (GET)
+[WARN] Tarball download average speed 40 KiB/s (size 110 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/generator/-/generator-7.29.7.tgz (GET)
+[WARN] Tarball download average speed 44 KiB/s (size 92 KiB) is below 50 KiB/s: https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz (GET)
+[WARN] Tarball download average speed 6 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.1.tgz (GET)
+[WARN] Tarball download average speed 46 KiB/s (size 123 KiB) is below 50 KiB/s: https://registry.npmjs.org/@nestjs/core/-/core-11.1.24.tgz (GET)
+[WARN] Tarball download average speed 10 KiB/s (size 11 KiB) is below 50 KiB/s: https://registry.npmjs.org/asap/-/asap-2.0.6.tgz (GET)
+[WARN] Tarball download average speed 10 KiB/s (size 13 KiB) is below 50 KiB/s: https://registry.npmjs.org/@humanfs/core/-/core-0.19.2.tgz (GET)
+Progress: resolved 643, reused 0, downloaded 544, added 541
+[WARN] Tarball download average speed 16 KiB/s (size 37 KiB) is below 50 KiB/s: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz (GET)
+Progress: resolved 643, reused 0, downloaded 595, added 576
+[WARN] Request took 17968ms: https://registry.npmjs.org/@angular-devkit%2Fschematics-cli
+Progress: resolved 643, reused 0, downloaded 637, added 608
+[WARN] Request took 17849ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+[WARN] Request took 18882ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
+[WARN] Request took 19723ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+[WARN] Request took 21186ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+[WARN] Request took 23201ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+[WARN] Request took 23860ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+[WARN] Request took 24154ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+[WARN] Request took 25984ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+Progress: resolved 643, reused 0, downloaded 643, added 642
+✓ Lockfile passes supply-chain policies (670 entries in 31.7s)
 Lockfile is up to date, resolution step is skipped
 Packages: +643
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -267,7 +243,7 @@ devDependencies:
 + typescript 5.9.3
 + typescript-eslint 8.60.0
 
-Done in 32.9s using pnpm v12.9.1
+Done in 32.5s using pnpm v12.9.1
 [Pipeline] }
 [Pipeline] // container
 [Pipeline] }
@@ -280,12 +256,12 @@ Done in 32.9s using pnpm v12.9.1
 + pnpm test
 $ jest
 PASS src/env-config.spec.ts
-PASS src/app.controller.spec.ts (5.62 s)
+PASS src/app.controller.spec.ts
 
 Test Suites: 2 passed, 2 total
 Tests:       5 passed, 5 total
 Snapshots:   0 total
-Time:        8.077 s
+Time:        9.6 s
 Ran all test suites.
 [Pipeline] }
 [Pipeline] // container
@@ -300,11 +276,9 @@ Ran all test suites.
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 DONE 0.0s
-
-#1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 485B done
-#1 DONE 0.1s
+#1 transferring dockerfile:
+#1 transferring dockerfile: 485B 0.0s done
+#1 DONE 0.2s
 
 #2 [internal] load metadata for docker.io/library/node:24-alpine
 #2 DONE 0.1s
@@ -317,31 +291,32 @@ Ran all test suites.
 #4 DONE 0.0s
 
 #5 [build 1/7] FROM docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
+#5 resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
 #5 resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1 0.1s done
 #5 DONE 0.1s
 
 #4 [internal] load build context
-#4 transferring context: 225.57kB 0.0s done
+#4 transferring context: 225.55kB 0.0s done
 #4 DONE 0.1s
 
-#6 [build 2/7] WORKDIR /app
+#6 [build 3/7] RUN corepack enable
 #6 CACHED
 
-#7 [build 3/7] RUN corepack enable
+#7 [build 4/7] COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 #7 CACHED
 
-#8 [build 4/7] COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+#8 [build 2/7] WORKDIR /app
 #8 CACHED
 
 #9 [build 5/7] RUN pnpm install --frozen-lockfile
 #9 CACHED
 
 #10 [build 6/7] COPY . .
-#10 DONE 0.3s
+#10 DONE 1.1s
 
 #11 [build 7/7] RUN pnpm build
-#11 1.504 $ nest build
-#11 DONE 12.1s
+#11 1.384 $ nest build
+#11 DONE 14.0s
 
 #12 [production 5/6] RUN pnpm install --prod --frozen-lockfile
 #12 CACHED
@@ -352,13 +327,13 @@ Ran all test suites.
 #14 exporting to image
 #14 exporting layers 0.0s done
 #14 exporting manifest sha256:1ecde51dc0a064fc76035dab3927bd046d73103f52b500f52aa15be55ed904e2 done
-#14 exporting config sha256:8e0693d2ebc180e91aa14301da913a7d970c03e36950df0a3be5528303a5eb17 0.0s done
-#14 exporting attestation manifest sha256:ee9dd2812b8d3ed34f028636fb3b2e1b2741b9ba80fc18095bf37a18d0983574 0.1s done
-#14 exporting manifest list sha256:3a795771b2fce561e2255981ae37252a106dd4d7f737846778127b249c08fdac
-#14 exporting manifest list sha256:3a795771b2fce561e2255981ae37252a106dd4d7f737846778127b249c08fdac 0.1s done
-#14 naming to docker.io/panavalong/lab3:pablo-anavalon 0.0s done
-#14 unpacking to docker.io/panavalong/lab3:pablo-anavalon 0.1s done
-#14 DONE 0.4s
+#14 exporting config sha256:8e0693d2ebc180e91aa14301da913a7d970c03e36950df0a3be5528303a5eb17 done
+#14 exporting attestation manifest sha256:e7d757b214d889c1ca2f9371b2c87a6e7e7466f85ca458b9f1a6902f4abee4f6
+#14 exporting attestation manifest sha256:e7d757b214d889c1ca2f9371b2c87a6e7e7466f85ca458b9f1a6902f4abee4f6 0.0s done
+#14 exporting manifest list sha256:71cdab203a0c722d8ca1efd47345c607bed27c085810d5d17f576a448bd9e389 0.0s done
+#14 naming to docker.io/panavalong/lab3:pablo-anavalon done
+#14 unpacking to docker.io/panavalong/lab3:pablo-anavalon 0.0s done
+#14 DONE 0.3s
 WARNING: current commit information was not captured by the build: failed to read current commit information with git rev-parse --is-inside-work-tree
 [Pipeline] }
 [Pipeline] // container
@@ -372,8 +347,8 @@ WARNING: current commit information was not captured by the build: failed to rea
 Masking supported pattern matches of $DOCKER_PASSWORD
 [Pipeline] {
 [Pipeline] sh
-+ + docker login -u panavalong --password-stdin
-echo ****
++ echo ****
++ docker login -u panavalong --password-stdin
 
 WARNING! Your credentials are stored unencrypted in '/root/.docker/config.json'.
 Configure a credential helper to remove this warning. See
@@ -382,65 +357,66 @@ https://docs.docker.com/go/credential-store/
 Login Succeeded
 + docker push panavalong/lab3:pablo-anavalon
 The push refers to repository [docker.io/panavalong/lab3]
-161f274fb25f: Waiting
+e2de96513ba9: Waiting
+d8361605b3d3: Waiting
 44136fa355b3: Waiting
-161f274fb25f: Waiting
+3c504d5a797b: Waiting
+d8361605b3d3: Waiting
 44136fa355b3: Waiting
 3c504d5a797b: Waiting
 e2de96513ba9: Waiting
-3c504d5a797b: Waiting
-e2de96513ba9: Waiting
-161f274fb25f: Waiting
-44136fa355b3: Waiting
-161f274fb25f: Waiting
+d8361605b3d3: Waiting
 44136fa355b3: Waiting
 3c504d5a797b: Waiting
 e2de96513ba9: Waiting
-3c504d5a797b: Waiting
 e2de96513ba9: Waiting
-161f274fb25f: Waiting
-44136fa355b3: Waiting
-161f274fb25f: Waiting
+d8361605b3d3: Waiting
 44136fa355b3: Waiting
 3c504d5a797b: Waiting
-e2de96513ba9: Waiting
-161f274fb25f: Waiting
+d8361605b3d3: Waiting
 44136fa355b3: Waiting
 3c504d5a797b: Waiting
 e2de96513ba9: Waiting
+d8361605b3d3: Waiting
 44136fa355b3: Waiting
 3c504d5a797b: Waiting
 e2de96513ba9: Waiting
-161f274fb25f: Waiting
+d8361605b3d3: Waiting
+44136fa355b3: Waiting
+3c504d5a797b: Waiting
+e2de96513ba9: Waiting
+e2de96513ba9: Waiting
+d8361605b3d3: Waiting
+44136fa355b3: Waiting
+3c504d5a797b: Waiting
+d8361605b3d3: Waiting
+44136fa355b3: Already exists
+3c504d5a797b: Waiting
+e2de96513ba9: Waiting
 02f40d53b06f: Waiting
 7ce7dcbafb7f: Waiting
-161f274fb25f: Waiting
-44136fa355b3: Already exists
 3c504d5a797b: Layer already exists
-e2de96513ba9: Waiting
 e2de96513ba9: Layer already exists
 02f40d53b06f: Waiting
-7ce7dcbafb7f: Waiting
-161f274fb25f: Waiting
 bbc9eccb0666: Waiting
-e897af3258c8: Waiting
-b958328a799a: Waiting
-02f40d53b06f: Waiting
+d8361605b3d3: Waiting
+d8361605b3d3: Waiting
 7ce7dcbafb7f: Layer already exists
-161f274fb25f: Waiting
-bbc9eccb0666: Waiting
-bbc9eccb0666: Layer already exists
 e897af3258c8: Waiting
 b958328a799a: Waiting
 02f40d53b06f: Layer already exists
-ecdb9084a31a: Waiting
+bbc9eccb0666: Waiting
 3a4006467bb5: Waiting
-b958328a799a: Layer already exists
+e897af3258c8: Waiting
+b958328a799a: Waiting
+bbc9eccb0666: Layer already exists
+ecdb9084a31a: Waiting
 ecdb9084a31a: Layer already exists
 3a4006467bb5: Layer already exists
 e897af3258c8: Layer already exists
-161f274fb25f: Pushed
-pablo-anavalon: digest: sha256:3a795771b2fce561e2255981ae37252a106dd4d7f737846778127b249c08fdac size: 856
+b958328a799a: Layer already exists
+d8361605b3d3: Pushed
+pablo-anavalon: digest: sha256:71cdab203a0c722d8ca1efd47345c607bed27c085810d5d17f576a448bd9e389 size: 856
 + docker logout
 Removing login credentials for https://index.docker.io/v1/
 [Pipeline] }
@@ -457,10 +433,10 @@ Removing login credentials for https://index.docker.io/v1/
 + kubectl apply -f entrega.yaml
 configmap/config-pablo-anavalon unchanged
 secret/secret-pablo-anavalon configured
-deployment.apps/deployment-pablo-anavalon unchanged
+deployment.apps/app-pablo-anavalon unchanged
 service/svc-pablo-anavalon unchanged
-+ kubectl rollout status deployment/deployment-pablo-anavalon -n ns-pablo-anavalon --timeout=120s
-deployment "deployment-pablo-anavalon" successfully rolled out
++ kubectl rollout status deployment/app-pablo-anavalon -n ns-pablo-anavalon --timeout=120s
+deployment "app-pablo-anavalon" successfully rolled out
 [Pipeline] }
 [Pipeline] // container
 [Pipeline] }

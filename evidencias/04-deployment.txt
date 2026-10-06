@@ -1,2 +1,2 @@
 NAME                 READY   UP-TO-DATE   AVAILABLE   AGE
-app-pablo-anavalon   2/2     2            2           97s
+app-pablo-anavalon   2/2     2            2           13m
