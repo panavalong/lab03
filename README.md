@@ -1,8 +1,4 @@
-# Laboratorio 3 - Despliegue CI/CD en Kubernetes
-
-## Alumno
-
-Pablo Anavalon
+# Laboratorio 3 - Despliegue CI/CD en Kubernetes - Pablo Anavalón
 
 ## Descripción
 
